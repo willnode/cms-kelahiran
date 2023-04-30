@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\DesaController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KelahiranController;
+use App\Http\Controllers\PeriodeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +25,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/f', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('dashboard');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::resource('desa', DesaController::class);
+Route::resource('periode', PeriodeController::class);
+Route::resource('kelahiran', KelahiranController::class);
+Route::resource('user', UserController::class);
