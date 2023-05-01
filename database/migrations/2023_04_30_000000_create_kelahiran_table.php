@@ -19,6 +19,13 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreignId('desa_id')->constrained(
+                table: 'desa',
+                indexName: 'desa_id'
+            );
+        });
+
         Schema::create('periode', function (Blueprint $table) {
             $table->id();
             $table->string('nama')->unique();
@@ -40,7 +47,6 @@ return new class extends Migration
             $table->string('nama_anak');
             $table->string('nama_ibu');
             $table->string('nama_ayah');
-            $table->string('alamat');
             $table->integer('umur_ibu');
             $table->integer('rt');
             $table->integer('rw');
@@ -56,6 +62,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign('desa_id');
+            $table->dropColumn('desa_id');
+        });
         Schema::dropIfExists('kelahiran');
         Schema::dropIfExists('periode');
         Schema::dropIfExists('desa');

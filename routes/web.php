@@ -30,3 +30,4 @@ Route::resource('desa', DesaController::class);
 Route::resource('periode', PeriodeController::class);
 Route::resource('kelahiran', KelahiranController::class);
 Route::resource('user', UserController::class);
+Route::get('/rekap', [HomeController::class, 'rekap'])->name('rekap');

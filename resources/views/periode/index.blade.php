@@ -23,7 +23,7 @@
 </div>
 @endif
 
-<table class="table table-bordered">
+<table class="table table-bordered align-middle">
     <tr>
         <th>No</th>
         <th>Bulan</th>
@@ -39,7 +39,7 @@
             <form action="{{ route('periode.destroy',$periode->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger">
+                <button type="submit" class="btn btn-sm btn-danger">
                     <i class="fas fa-trash"></i>
                 </button>
             </form>

@@ -8,13 +8,23 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $users = User::latest()->paginate(5);
+        $users = User::latest()->paginate(20);
     
         return view('user.index',compact('users'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -48,17 +58,6 @@ class UserController extends Controller
         return redirect()->route('user.index')
                         ->with('success','User created successfully.');
     }
-     
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
-        return view('user.show',compact('user'));
-    } 
      
     /**
      * Show the form for editing the specified resource.

@@ -8,13 +8,23 @@ use Illuminate\Http\Request;
 class PeriodeController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $periodes = Periode::latest()->paginate(5);
+        $periodes = Periode::latest()->paginate(12);
 
         return view('periode.index', compact('periodes'))
             ->with('i', (request()->input('page', 1) - 1) * 5);

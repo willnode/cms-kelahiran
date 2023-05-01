@@ -46,12 +46,13 @@
                                 Edit Data
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Kelahiran</a></li>
+                                <li><a class="dropdown-item" href="/kelahiran">Kelahiran</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li><a class="dropdown-item" href="/desa">Desa</a></li>
                                 <li><a class="dropdown-item" href="/periode">Periode</a></li>
+                                <li><a class="dropdown-item" href="/user">Akun</a></li>
                             </ul>
                         </li>
                     </ul>
