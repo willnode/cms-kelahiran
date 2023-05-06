@@ -36,10 +36,12 @@
                             <a class="nav-link" aria-current="page" href="/home">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/kelahiran/create">Input Data</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="/kelahiran/rekap">Rekap Data</a>
+                        </li>
+                        @guest
+                        @else
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/kelahiran/create">Input Data</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -55,6 +57,7 @@
                                 <li><a class="dropdown-item" href="/user">Akun</a></li>
                             </ul>
                         </li>
+                        @endguest
                     </ul>
 
                     <!-- Right Side Of Navbar -->
