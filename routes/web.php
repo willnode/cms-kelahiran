@@ -20,10 +20,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/home');
 });
 
-Auth::routes();
+Auth::routes([
+    'register' => env('APP_DEBUG', false), // Registration Routes...
+    'reset' =>  env('APP_DEBUG', false), // Password Reset Routes...
+    'verify' =>  env('APP_DEBUG', false), // Email Verification Routes...
+]);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::resource('desa', DesaController::class);
